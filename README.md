@@ -2,7 +2,10 @@
 
 ## Overview
 
-This study project is designed to help you learn and master the Laravel framework using [Laracasts](https://laracasts.com) as a primary resource. We will set up a Laravel application environment using Laravel Sail, a lightweight command-line interface for running Laravel in Docker.
+This study project is designed to help you learn and master the Laravel framework using [Laracasts](https://laracasts.com) as a primary resource.
+https://laracasts.com/series/30-days-to-learn-laravel-11/episodes/18
+
+We will set up a Laravel application environment using Laravel Sail, a lightweight command-line interface for running Laravel in Docker.
 
 ## Table of Contents
 - [Introduction](#introduction)
