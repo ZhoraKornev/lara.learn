@@ -18,19 +18,19 @@ class JobController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         return view('jobs.create');
 
     }
 
-    public function show(Job $job)
+    public function show(Job $job): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         return view('jobs.show', ['job' => $job]);
 
     }
 
-    public function store()
+    public function store(): Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     { request()->validate([
         'title' => 'required|min:3',
         'salary' => 'required'
@@ -50,7 +50,7 @@ class JobController extends Controller
         return view('jobs.edit', ['job' => $job]);
 
     }
-    public function update(Job $job)
+    public function update(Job $job): Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         request()->validate([
             'title' => 'required|min:3',
