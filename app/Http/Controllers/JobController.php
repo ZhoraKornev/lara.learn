@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 
 class JobController extends Controller
 {
@@ -31,10 +33,11 @@ class JobController extends Controller
     }
 
     public function store(): Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
-    { request()->validate([
-        'title' => 'required|min:3',
-        'salary' => 'required'
-    ]);
+    {
+        request()->validate([
+            'title' => 'required|min:3',
+            'salary' => 'required'
+        ]);
         Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
@@ -45,11 +48,11 @@ class JobController extends Controller
 
     }
 
-    public function edit(Job $job)
+    public function edit(Job $job): Factory|Application|View|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
         return view('jobs.edit', ['job' => $job]);
-
     }
+
     public function update(Job $job): Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         request()->validate([
@@ -61,9 +64,10 @@ class JobController extends Controller
             'title' => request('title'),
             'salary' => request('salary'),
         ]);
-        return redirect('/jobs/'.$job->id);
+        return redirect('/jobs/' . $job->id);
 
     }
+
     public function destroy(Job $job)
     {
         $job->delete();
