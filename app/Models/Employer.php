@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property string $name
@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Employer whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employer whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employer whereUpdatedAt($value)
+ * @property int $user_id
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Employer whereUserId($value)
  * @mixin \Eloquent
  */
 class Employer extends Model
